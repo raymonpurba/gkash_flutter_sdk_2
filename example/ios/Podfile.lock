@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - gkash_payment (0.0.1):
+    - Flutter
+    - GkashPayment (~> 0.6)
+  - GkashPayment (0.8)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - gkash_payment (from `.symlinks/plugins/gkash_payment/ios`)
+
+SPEC REPOS:
+  trunk:
+    - GkashPayment
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  gkash_payment:
+    :path: ".symlinks/plugins/gkash_payment/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  gkash_payment: c031dbfd628bc7c84464f23aeb723eedacee9e7b
+  GkashPayment: f5a748573c42804181fabc4c43bf60dbd95f670a
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.11.3
