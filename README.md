@@ -1,15 +1,66 @@
-# gkash_payment
+# GkashFlutterSDK
 
-A new Flutter plugin project.
+This plugin allows you to integrate Gkash Payment Gateway into your Flutter App.
 
-## Getting Started
+## Usage
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+Sample usage to start a payment:
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+import 'package:gkash_payment/gkash_webview.dart';
+import 'package:gkash_payment/model/payment_callback.dart';
+import 'package:gkash_payment/model/payment_request.dart';
+import 'package:gkash_payment/model/payment_response.dart';
 
+    requestPayment() {
+        //Generate your Payment Request
+        PaymentRequest request = PaymentRequest(
+            version: '1.5.0',
+            cid: "M102-U-xxx",
+            currency: 'MYR',
+            amount: amountInput,
+            cartid: DateTime.now().millisecondsSinceEpoch.toString(),
+            signatureKey: "yourSignatureKey",
+            paymentCallback: this);
+        //Navigate to GkashWebView
+        Navigator.of(navigatorKey.currentState!.context).push(
+            MaterialPageRoute(
+                builder: (_) {
+                return GkashWebView(request);
+                },
+            ),
+        );
+    }
+```
+
+## Getting the Payment Result
+
+Upon finishing of the WebView Activity, implement GkashPaymentCallback to your widget
+
+```
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage>
+    implements PaymentCallback {
+
+  @override
+  void getPaymentStatus(PaymentResponse response) {
+    // handle payment response
+    setState(() {
+      _status = response.status;
+      _cartId = response.cartid;
+      _amount = response.amount;
+      _currency = response.currency;
+      _description = response.description;
+      _paymentType = response.PaymentType;
+      _poId = response.POID;
+      _cid = response.cid;
+    });
+  }
+```
+
+## License
+[Apache 2.0](https://choosealicense.com/licenses/apache-2.0/)
