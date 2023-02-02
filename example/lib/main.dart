@@ -44,11 +44,11 @@ class _MyAppState extends State<MyApp> implements PaymentCallback {
   requestPayment() {
     PaymentRequest request = PaymentRequest(
         version: '1.5.0',
-        cid: "M102-U-xxx",
+        cid: "M161-U-33",
         currency: 'MYR',
         amount: amountInput,
         cartid: DateTime.now().millisecondsSinceEpoch.toString(),
-        signatureKey: "yourSignatureKey",
+        signatureKey: "oAhVwtUxfrop4cI",
         isProd: false, //if production environment then set to true
         paymentCallback: this);
 
