@@ -10,3 +10,5 @@
 * Updated README.md
 ## 0.0.6
 * Updated IOS platform to FlutterPlatformView
+## 0.0.8
+* Updated README.md
