@@ -1,6 +1,6 @@
 name: gkash_payment
 description: This plugin allows you to integrate Gkash Payment Gateway into your Flutter App.
-version: 0.0.7
+version: 0.0.8
 homepage: https://github.com/gkashmy/gkash_flutter_sdk_2.git
 
 environment:

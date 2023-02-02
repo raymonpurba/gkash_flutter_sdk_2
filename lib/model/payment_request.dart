@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:gkash_payment/model/payment_callback.dart';
 
 class PaymentRequest {
@@ -20,10 +18,10 @@ class PaymentRequest {
   final String? billingCity; // Optional
   final String? billingState; // Optional
   final String? billingCountry; // Optional
-  final Bool? isProd;
+  final bool isProd;
   final PaymentCallback? paymentCallback;
 
-  Bool? getIsProd() {
+  bool getIsProd() {
     return isProd;
   }
 
@@ -122,12 +120,12 @@ class PaymentRequest {
   }
 
   PaymentRequest(
-      {this.version,
-      this.cid,
-      this.currency,
-      this.amount,
-      this.cartid,
-      this.signatureKey,
+      {required this.version,
+      required this.cid,
+      required this.currency,
+      required this.amount,
+      required this.cartid,
+      required this.signatureKey,
       this.returnUrl,
       this.email,
       this.mobileNo,
@@ -139,6 +137,6 @@ class PaymentRequest {
       this.billingCity,
       this.billingState,
       this.billingCountry,
-      this.isProd,
+      required this.isProd,
       this.paymentCallback});
 }

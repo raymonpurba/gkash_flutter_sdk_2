@@ -21,6 +21,7 @@ import 'package:gkash_payment/model/payment_response.dart';
             amount: amountInput,
             cartid: DateTime.now().millisecondsSinceEpoch.toString(),
             signatureKey: "yourSignatureKey",
+            isProd: false, 
             paymentCallback: this);
         //Navigate to GkashWebView
         Navigator.of(navigatorKey.currentState!.context).push(
