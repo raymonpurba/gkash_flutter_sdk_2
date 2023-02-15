@@ -12,3 +12,5 @@
 * Updated IOS platform to FlutterPlatformView
 ## 0.0.8
 * Updated README.md
+## 0.0.9
+* Updated IOS callback url and Fixed production env
