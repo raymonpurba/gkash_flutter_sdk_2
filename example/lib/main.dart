@@ -50,6 +50,7 @@ class _MyAppState extends State<MyApp> implements PaymentCallback {
         cartid: DateTime.now().millisecondsSinceEpoch.toString(),
         signatureKey: "YourSignatureKey",
         isProd: false, //if production environment then set to true
+        callbackUrl: "https://YourCallbackUrl.com/callback", //set your callback URL (Optional)
         paymentCallback: this);
 
     Navigator.of(navigatorKey.currentState!.context).push(

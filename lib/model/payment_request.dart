@@ -8,6 +8,7 @@ class PaymentRequest {
   final String? cartid;
   final String? signatureKey;
   String? returnUrl; //URL scheme
+  final String? callbackUrl;
   final String? email; // Optional
   final String? mobileNo; // Optional
   final String? firstName; // Optional
@@ -116,6 +117,8 @@ class PaymentRequest {
       'billingCity': billingCity,
       'billingState': billingState,
       'billingCountry': billingCountry,
+      'callbackUrl': callbackUrl,
+      'isProd': isProd
     };
   }
 
@@ -126,6 +129,7 @@ class PaymentRequest {
       required this.amount,
       required this.cartid,
       required this.signatureKey,
+      this.callbackUrl,
       this.returnUrl,
       this.email,
       this.mobileNo,

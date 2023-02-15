@@ -60,9 +60,10 @@ public class GkashPaymentPlugin implements FlutterPlugin, MethodCallHandler, Act
           result.success(resp);
         }
       });
-
+      request.setCallbackUrl(call.argument("callbackUrl"));
       final GkashPayment gkashPayment = GkashPayment.getInstance();
-      gkashPayment.setProductionEnvironment(false);
+      boolean isProd = call.argument("isProd") == null ? false : call.argument("isProd");
+      gkashPayment.setProductionEnvironment(isProd);
       gkashPayment.startPayment(mActivity, request);
     }else{
       result.notImplemented();
