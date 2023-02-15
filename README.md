@@ -22,6 +22,7 @@ import 'package:gkash_payment/model/payment_response.dart';
             cartid: DateTime.now().millisecondsSinceEpoch.toString(),
             signatureKey: "yourSignatureKey",
             isProd: false, //if production environment then set to true
+            callbackUrl: "https://YourCallbackUrl.com/callback", //set your callback URL (Optional)
             paymentCallback: this);
         //Navigate to GkashWebView
         Navigator.of(navigatorKey.currentState!.context).push(

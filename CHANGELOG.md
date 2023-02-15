@@ -14,3 +14,5 @@
 * Updated README.md
 ## 0.0.9
 * Updated IOS callback url and Fixed production env
+## 0.0.10
+* Updated README.md
