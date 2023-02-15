@@ -85,8 +85,8 @@ class _GkashWebViewState extends State<GkashWebView> {
       creationParams['lastName'] = widget.request.lastName;
       creationParams['returnUrl'] =
           widget.request.returnUrl ?? "gkash://returntoapp";
-      creationParams['isProd'] = widget.request.isProd.toString();
-      creationParams['callbackUrl'] = widget.request.callbackUrl.toString();
+      creationParams['isProd'] = widget.request.isProd;
+      creationParams['callbackUrl'] = widget.request.callbackUrl;
     } else {
       GkashPaymentPlatform gkashPayment = GkashPaymentPlatform.instance;
       gkashPayment.requestPayment(widget.request).then((resp) {

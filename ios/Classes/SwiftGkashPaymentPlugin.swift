@@ -54,21 +54,22 @@ public class SwiftGkashPaymentPlugin: NSObject, FlutterPlugin {
       let amount : String = data?["amount"] as! String? ?? ""
       let signatureKey : String = data?["signatureKey"] as! String? ?? ""
       let cartId : String = data?["cartId"] as! String? ?? ""
-      let isProd : String = data?["isProd"] as! String? ?? ""
+      let isProd : Bool = data?["isProd"] as! Bool? ?? false
       let returnUrl : String = data?["returnUrl"] as! String? ?? ""
       let firstName : String = data?["v_firstname"] as! String? ?? ""
       let lastName : String = data?["v_lastname"] as! String? ?? ""
+      let callbackUrl : String = data?["callbackUrl"] as! String? ?? ""
       _nativeWebView = WKWebView()
       _methodChannel = FlutterMethodChannel(name: "gkash_payment", binaryMessenger: messenger)
       let urlScheme = URL(string: "gkash://returntoapp")
 
       super.init()
 
-      request = PaymentRequest(cid: cid, signatureKey: signatureKey, amount: amount, cartId: cartId, isProd: false, returnUrl: returnUrl, callback: self)
+      request = PaymentRequest(cid: cid, signatureKey: signatureKey, amount: amount, cartId: cartId, isProd: isProd, returnUrl: returnUrl, callback: self)
     
       let url: String = request!.HOST_URL + "/api/PaymentForm.aspx"
       print("update ui view")
-
+ 
       var urlRequest: URLRequest = URLRequest(url: URL(string: url)!)
       urlRequest.httpMethod = "POST"
       urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -85,6 +86,7 @@ public class SwiftGkashPaymentPlugin: NSObject, FlutterPlugin {
         URLQueryItem(name: "v_billphone", value: request!.mobileNo),
         URLQueryItem(name: "signature", value: request!.generateSignature()),
         URLQueryItem(name: "returnurl", value: request!.returnUrl),
+        URLQueryItem(name: "callbackurl", value: callbackUrl),
       ]
       let query = components.url!.query
       urlRequest.httpBody = Data(query!.utf8)
