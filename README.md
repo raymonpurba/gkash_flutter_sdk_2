@@ -1,4 +1,4 @@
-# GkashFlutterSDK
+# Gkash Payment SDK for Flutter (E-Commerce)
 
 This plugin allows you to integrate Gkash Payment Gateway into your Flutter App.
 
