@@ -84,7 +84,8 @@ public class SwiftGkashPaymentPlugin: NSObject, FlutterPlugin {
         URLQueryItem(name: "v_lastname", value: request!.lastName),
         URLQueryItem(name: "v_billemail", value: request!.email),
         URLQueryItem(name: "v_billphone", value: request!.mobileNo),
-        URLQueryItem(name: "signature", value: request!.generateSignature()),
+        // URLQueryItem(name: "signature", value: request!.generateSignature()),
+        URLQueryItem(name: "signature", value: request!.signatureKey),
         URLQueryItem(name: "returnurl", value: request!.returnUrl),
         URLQueryItem(name: "callbackurl", value: callbackUrl),
       ]
