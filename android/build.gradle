@@ -16,6 +16,9 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
+        flatDir {
+            dirs project(':gkash_payment').file('libs')
+        }
     }
 }
 
@@ -36,4 +39,5 @@ android {
 
 dependencies {
     implementation 'io.github.gkashmy:gkash-android-sdk:2.0.0'
+    implementation (name: 'gkash-android-sdk-300523', ext: 'aar')
 }
